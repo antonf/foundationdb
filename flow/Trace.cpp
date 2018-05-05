@@ -874,7 +874,7 @@ TraceEvent& TraceEvent::backtrace(std::string prefix) {
 	return detail((prefix + "Backtrace").c_str(), platform::get_backtrace());
 }
 
-TraceEvent::~TraceEvent() {
+TraceEvent::~TraceEvent() noexcept(false) {
 	try {
 		if (enabled) {
 			// TRACE_EVENT_THROTTLER

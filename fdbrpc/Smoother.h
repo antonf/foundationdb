@@ -22,6 +22,7 @@
 #define FLOW_SMOOTHER_H
 #pragma once
 
+#include <cmath>
 #include "flow/flow.h"
 
 struct Smoother {
@@ -50,7 +51,7 @@ struct Smoother {
 		double elapsed = t - time;
 		if(elapsed) {
 			time = t;
-			estimate += (total-estimate) * (1-exp( -elapsed/eFoldingTime ));
+			estimate += (total-estimate) * (1-::exp( -elapsed/eFoldingTime ));
 		}
 	}
 
@@ -83,7 +84,7 @@ struct TimerSmoother {
 	void update(double t) {
 		double elapsed = t - time;
 		time = t;
-		estimate += (total-estimate) * (1-exp( -elapsed/eFoldingTime ));
+		estimate += (total-estimate) * (1-::exp( -elapsed/eFoldingTime ));
 	}
 
 	double eFoldingTime;

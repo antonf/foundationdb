@@ -34,7 +34,7 @@ ifeq ($(PLATFORM),Linux)
   CC ?= gcc
   CXX ?= g++
 
-  CXXFLAGS += -std=c++0x
+  CXXFLAGS += -std=c++0x -Wno-placement-new
 
   BOOSTDIR ?= /opt/boost_1_52_0
   DLEXT := so
